@@ -7,7 +7,14 @@ module.exports = [
         method: 'GET',
         path: '/',
         handler: function (request, reply) {
-            reply('Hello World!!!');
+            reply.file(path.join(basePath, '/public/index.html'));
+        }
+    },
+    {
+        method: 'GET',
+        path: '/{input}',
+        handler: function(request, reply){
+            reply(request.params.input)
         }
     }
 ]
